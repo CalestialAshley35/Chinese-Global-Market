@@ -1,0 +1,30 @@
+mongoose.connect('mongodb://localhost/marketplace', { useNewUrlParser: true, useUnifiedTopology: true });
+
+const Info = mongoose.model('Info', {
+name: String,
+email: String,
+info: String
+});
+
+app.use(express.json());
+
+app.post('/api/marketplace', (req, res) => {
+const info = new Info(req.body);
+info.save((err, info) => {
+if (err) {
+res.status(500).send({ message: 'Error saving info' });
+} else {
+res.send({ message: 'Info saved successfully' });
+}
+});
+});
+
+app.get('/api/marketplace', (req, res) => {
+Info.find()
+.then(data => {
+res.json(data);
+})
+.catch(error => {
+res.status(500).send({ message: 'Error fetching data' });
+});
+});
