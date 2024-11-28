@@ -2,6 +2,24 @@
 <html>
 <head>
 <title>Virtual Marketplace</title>
+<style>
+/* Add some basic styling, bro! */
+body {
+font-family: Arial, sans-serif;
+}
+.marketplace-list {
+list-style: none;
+padding: 0;
+margin: 0;
+}
+.marketplace-list li {
+padding: 10px;
+border-bottom: 1px solid #ccc;
+}
+.marketplace-list li:last-child {
+border-bottom: none;
+}
+</style>
 </head>
 <body>
 <h1>Virtual Marketplace</h1>
@@ -14,7 +32,7 @@
 <textarea id="info" name="info"></textarea>
 <button type="submit">Save</button>
 </form>
-<div id="marketplace"></div>
+<div id="marketplace-list"></div>
 
 <script src="script.js"></script>
 </body>
